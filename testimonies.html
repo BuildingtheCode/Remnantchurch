@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testimonies | Remnant Fire Embassy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Outfit', sans-serif; }
+        .glass {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+        .testimony-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
+        }
+        .testimony-card.active .testimony-content {
+            max-height: 1000px;
+            transition: max-height 1s ease-in;
+        }
+        .testimony-card.active .expand-icon {
+            transform: rotate(180deg);
+        }
+        .gold-gradient {
+            background: linear-gradient(135deg, #B8860B 0%, #FFD700 100%);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900">
+
+    <nav class="fixed top-0 w-full z-[100] glass border-b border-white/20 px-6 py-4 flex justify-between items-center">
+        <a href="index.html" class="text-xl font-bold tracking-tighter text-slate-900">
+            REMNANT <span class="text-amber-600">FIRE</span>
+        </a>
+        <div class="hidden md:flex gap-6">
+            <a href="index.html" class="text-sm font-semibold text-slate-600 hover:text-amber-600">Home</a>
+            <a href="sermon.html" class="text-sm font-semibold text-slate-600 hover:text-amber-600">Sermons</a>
+            <a href="giving.html" class="text-sm font-semibold text-slate-600 hover:text-amber-600">Giving</a>
+        </div>
+        <a href="contact.html" class="text-sm font-semibold bg-slate-900 text-white px-5 py-2 rounded-full">Contact</a>
+    </nav>
+
+    <header class="pt-40 pb-16 px-6 text-center">
+        <div class="max-w-3xl mx-auto" data-aos="fade-up">
+            <span class="text-amber-600 font-bold tracking-widest text-xs uppercase">Overcoming by the Word</span>
+            <h1 class="text-5xl md:text-6xl font-bold mt-4 mb-6 tracking-tight">The <span class="text-amber-600">Miracle</span> Wall</h1>
+            <p class="text-lg text-slate-500 mb-10">Real people. Real fire. Real encounters with the power of God in Uyo.</p>
+            <button class="gold-gradient text-white px-8 py-4 rounded-2xl font-bold shadow-lg shadow-amber-200 hover:scale-105 transition-transform">
+                Share Your Testimony
+            </button>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-6 pb-24 space-y-6">
+        
+        <div class="testimony-card glass p-8 rounded-[2.5rem] cursor-pointer hover:shadow-xl transition-all border-l-8 border-amber-500" onclick="toggleTestimony(this)" data-aos="fade-up">
+            <div class="flex justify-between items-center">
+                <div>
+                    <h3 class="text-2xl font-bold text-slate-800">Supernatural Debt Cancellation</h3>
+                    <p class="text-sm text-slate-400 mt-1">Sister Martha E. • March 2026</p>
+                </div>
+                <span class="expand-icon text-2xl text-amber-600 transition-transform duration-300">↓</span>
+            </div>
+            <div class="testimony-content">
+                <div class="pt-6 text-slate-600 leading-relaxed border-t border-slate-100 mt-6 space-y-4">
+                    <p>For three years, I was burdened with a debt that seemed impossible to pay. After the "Mid-Week Fire" service where the Man of God spoke about supernatural supply, I received a call the next morning.</p>
+                    <p>A business partner I hadn't spoken to in years contacted me and informed me that a project we did long ago had finally yielded returns. The amount I received was exactly what I owed, plus extra! God is indeed a provider!</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="testimony-card glass p-8 rounded-[2.5rem] cursor-pointer hover:shadow-xl transition-all border-l-8 border-slate-900" onclick="toggleTestimony(this)" data-aos="fade-up" data-aos-delay="100">
+            <div class="flex justify-between items-center">
+                <div>
+                    <h3 class="text-2xl font-bold text-slate-800">Healed from Chronic Migraines</h3>
+                    <p class="text-sm text-slate-400 mt-1">Brother Samuel U. • February 2026</p>
+                </div>
+                <span class="expand-icon text-2xl text-slate-900 transition-transform duration-300">↓</span>
+            </div>
+            <div class="testimony-content">
+                <div class="pt-6 text-slate-600 leading-relaxed border-t border-slate-100 mt-6 space-y-4">
+                    <p>I had lived with chronic migraines for over 10 years. It affected my work at the Polytechnic and my family life. During the Grand Encounter service, as the worship was ongoing, I felt a cool sensation over my head.</p>
+                    <p>Since that day, I haven't taken a single painkiller. The doctors are amazed, but I know it was the hand of God at the Embassy!</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="testimony-card glass p-8 rounded-[2.5rem] cursor-pointer hover:shadow-xl transition-all border-l-8 border-amber-500" onclick="toggleTestimony(this)" data-aos="fade-up" data-aos-delay="200">
+            <div class="flex justify-between items-center">
+                <div>
+                    <h3 class="text-2xl font-bold text-slate-800">Academic Breakthrough</h3>
+                    <p class="text-sm text-slate-400 mt-1">Sister Blessing A. • January 2026</p>
+                </div>
+                <span class="expand-icon text-2xl text-amber-600 transition-transform duration-300">↓</span>
+            </div>
+            <div class="testimony-content">
+                <div class="pt-6 text-slate-600 leading-relaxed border-t border-slate-100 mt-6 space-y-4">
+                    <p>I was struggling with a particular course for two sessions. I joined the Remnant Fire student outreach and learned the secret of consecrated study and prayer.</p>
+                    <p>In the last exams, not only did I pass, but I emerged with an 'A'. I am here to return all the glory to Jesus!</p>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="bg-slate-900 text-white pt-24 pb-12 px-6">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between gap-16 border-b border-slate-800 pb-16">
+            <div class="max-w-sm">
+                <div class="text-3xl font-bold mb-6">REMNANT <span class="text-amber-500">FIRE</span></div>
+                <p class="text-slate-400">Where the fire of God meets the needs of men.</p>
+            </div>
+            <div class="flex gap-12">
+                <a href="index.html" class="text-slate-400 hover:text-white transition-colors">Home</a>
+                <a href="sermon.html" class="text-slate-400 hover:text-white transition-colors">Sermons</a>
+                <a href="contact.html" class="text-slate-400 hover:text-white transition-colors">Contact</a>
+            </div>
+        </div>
+        <div class="text-center mt-12 text-sm text-slate-500">
+            © 2026 Remnant Fire Embassy.
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true });
+
+        function toggleTestimony(card) {
+            // Close all other cards first (Optional - remove if you want multiple open)
+            document.querySelectorAll('.testimony-card').forEach(c => {
+                if (c !== card) c.classList.remove('active');
+            });
+            
+            // Toggle current card
+            card.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

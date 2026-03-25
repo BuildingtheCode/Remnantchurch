@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remnant Fire Embassy | Uyo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-dark: #0f172a; /* Dimmed Background */
+            --accent-gold: #fbbf24;
+        }
+        body { 
+            font-family: 'Outfit', sans-serif; 
+            overflow-x: hidden; 
+            background-color: var(--bg-dark); 
+            color: #f1f5f9;
+        }
+
+        /* Ultra-Modern Background Shapes */
+        .bg-shape {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(80px);
+            z-index: -1;
+            opacity: 0.15;
+            pointer-events: none;
+        }
+        .shape-1 { width: 500px; height: 500px; top: -10%; left: -10%; background: linear-gradient(135deg, #B8860B, transparent); }
+        .shape-2 { width: 400px; height: 400px; bottom: 10%; right: -5%; background: linear-gradient(225deg, #fbbf24, transparent); }
+
+        /* Sun Cycle Effect */
+        #sun {
+            position: fixed;
+            width: 80px;
+            height: 80px;
+            background: radial-gradient(circle, #fbbf24, #d97706);
+            border-radius: 50%;
+            filter: blur(20px);
+            z-index: 50;
+            pointer-events: none;
+            box-shadow: 0 0 50px #fbbf24;
+            opacity: 0.8;
+        }
+
+        .glass {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .gold-gradient {
+            background: linear-gradient(135deg, #B8860B 0%, #FFD700 50%, #B8860B 100%);
+            background-size: 200% auto;
+            transition: 0.5s;
+        }
+        .gold-gradient:hover { background-position: right center; scale: 1.05; }
+
+        /* Live Particle Effect Container */
+        #canvas-particles {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="sun"></div>
+    <div class="bg-shape shape-1"></div>
+    <div class="bg-shape shape-2"></div>
+    <canvas id="canvas-particles"></canvas>
+
+    <nav class="fixed top-0 w-full z-[100] glass border-b border-white/5 px-6 py-4 flex justify-between items-center">
+        <div class="text-xl font-bold tracking-tighter text-white">
+            REMNANT <span class="text-amber-500">FIRE</span>
+        </div>
+        <div class="hidden md:flex gap-8 items-center">
+            <a href="sermon.html" class="text-sm font-semibold text-slate-300 hover:text-amber-500">Sermons</a>
+            <a href="giving.html" class="text-sm font-semibold text-slate-300 hover:text-amber-500">Giving</a>
+            <a href="testimonies.html" class="text-sm font-semibold text-slate-300 hover:text-amber-500">Testimonies</a>
+            <a href="contact.html" class="text-sm font-semibold bg-white text-slate-900 px-5 py-2 rounded-full hover:bg-amber-500 hover:text-white transition-all">Contact</a>
+        </div>
+    </nav>
+
+    <section class="relative pt-56 pb-32 px-6 text-center">
+        <div class="max-w-4xl mx-auto" data-aos="zoom-out">
+            <span class="inline-block px-4 py-1 mb-6 text-[10px] font-bold tracking-[0.3em] uppercase bg-amber-500/10 text-amber-500 border border-amber-500/20 rounded-full">
+                Uyo-City Polytechnic • Akwa Ibom
+            </span>
+            <h1 class="text-6xl md:text-9xl font-bold mb-8 tracking-tighter text-white leading-tight">
+                The Embassy of <br/><span class="text-amber-500 italic font-light">Presence</span>
+            </h1>
+            
+            <div class="h-12 flex items-center justify-center mb-10">
+                <p id="typewriter" class="text-xl md:text-2xl text-amber-200/80 italic font-light"></p>
+            </div>
+
+            <div class="flex flex-col sm:flex-row gap-5 justify-center">
+                <a href="sermon.html" class="gold-gradient text-slate-900 px-12 py-5 rounded-full font-bold shadow-2xl shadow-amber-500/20">Watch Live</a>
+                <button onclick="openHopeModal()" class="glass px-12 py-5 rounded-full font-bold border border-white/10 text-white hover:bg-white/10 transition-all">Start New Life</button>
+            </div>
+        </div>
+    </section>
+
+    <main class="max-w-6xl mx-auto px-6 space-y-40">
+        
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8" data-aos="fade-up">
+            <div class="glass p-12 rounded-[3rem] group hover:border-amber-500/50 transition-all">
+                <h3 class="font-bold text-amber-500 text-xs uppercase tracking-widest mb-4">Lord's Day</h3>
+                <h4 class="text-4xl font-bold mb-4">Grand Encounter</h4>
+                <p class="text-slate-400">Join us every Sunday by 8:00 AM for a transition into His glory.</p>
+            </div>
+            <div class="glass p-12 rounded-[3rem] group hover:border-amber-500/50 transition-all">
+                <h3 class="font-bold text-amber-500 text-xs uppercase tracking-widest mb-4">Mid-Week</h3>
+                <h4 class="text-4xl font-bold mb-4">Fire & Word</h4>
+                <p class="text-slate-400">Ignite your spirit every Wednesday by 5:00 PM Prompt.</p>
+            </div>
+        </section>
+
+        <section class="mb-24" data-aos="zoom-in">
+            <div class="glass p-12 md:p-24 rounded-[4rem] text-center border border-white/5 shadow-3xl">
+                <h2 class="text-4xl md:text-6xl font-bold mb-16 tracking-tight">Soul Winner's <span class="text-amber-500">Toolkit</span></h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
+                    <div class="p-10 rounded-[2.5rem] bg-slate-800/50 border border-white/5 hover:bg-slate-800 transition-all cursor-pointer" onclick="openHopeModal()">
+                        <div class="text-4xl mb-6">🕊️</div>
+                        <h3 class="font-bold text-2xl mb-2">Message of Hope</h3>
+                        <p class="text-slate-400 text-sm">Discover your purpose in Christ today.</p>
+                    </div>
+
+                    <div class="p-10 rounded-[2.5rem] bg-amber-500 text-slate-900 hover:scale-105 transition-all cursor-pointer shadow-xl shadow-amber-500/20" onclick="openConvertModal()">
+                        <div class="text-4xl mb-6">✋</div>
+                        <h3 class="font-bold text-2xl mb-2">I Accepted Jesus</h3>
+                        <p class="text-slate-900/70 text-sm">Let us celebrate your new beginning together.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="convertModal" class="fixed inset-0 z-[300] hidden items-center justify-center p-6 bg-slate-950/90 backdrop-blur-md">
+        <div class="glass max-w-lg w-full p-12 rounded-[3.5rem] relative">
+            <button onclick="closeConvertModal()" class="absolute top-8 right-8 text-slate-500">✕</button>
+            <form id="convertForm" class="space-y-6">
+                <h2 class="text-3xl font-bold text-center mb-8">Heaven is Rejoicing!</h2>
+                <input type="text" id="convertName" required placeholder="Full Name" class="w-full px-8 py-5 rounded-2xl bg-slate-900/50 border border-white/10 outline-none focus:border-amber-500 text-white">
+                <input type="tel" id="convertPhone" required placeholder="WhatsApp Number" class="w-full px-8 py-5 rounded-2xl bg-slate-900/50 border border-white/10 outline-none focus:border-amber-500 text-white">
+                <button type="submit" class="w-full gold-gradient py-5 rounded-2xl text-slate-900 font-bold text-lg">Start My Journey</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="hopeModal" class="fixed inset-0 z-[400] hidden items-center justify-center p-6 bg-slate-950/95 backdrop-blur-xl">
+        <div class="max-w-3xl w-full h-[80vh] overflow-y-auto p-12 relative glass rounded-[4rem]">
+            <button onclick="closeHopeModal()" class="fixed top-10 right-10 text-white">✕</button>
+            <div class="text-left space-y-8">
+                <h2 class="text-5xl font-bold">You are <span class="text-amber-500">Loved.</span></h2>
+                <p class="text-xl text-slate-400">God has a plan for your life. Admission, Belief, and Confession are the keys to a new life.</p>
+                <button onclick="closeHopeAndOpenDecision()" class="gold-gradient text-slate-900 px-10 py-4 rounded-full font-bold">I Am Ready</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-slate-950 text-white py-24 px-6 border-t border-white/5">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between gap-16">
+            <div>
+                <div class="text-3xl font-bold mb-6 tracking-tighter uppercase">REMNANT <span class="text-amber-500">FIRE</span></div>
+                <p class="text-slate-500 max-w-xs">Building a supernatural lifestyle of fire and integrity.</p>
+            </div>
+            <div class="grid grid-cols-2 gap-20">
+                <div>
+                    <h4 class="text-amber-500 font-bold mb-6 text-xs uppercase tracking-widest">Platform</h4>
+                    <ul class="space-y-4 text-slate-400">
+                        <li><a href="sermon.html">Sermons</a></li>
+                        <li><a href="giving.html">Givng</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-amber-500 font-bold mb-6 text-xs uppercase tracking-widest">Connect</h4>
+                    <ul class="space-y-4 text-slate-400">
+                        <li><a href="#">WhatsApp</a></li>
+                        <li><a href="#">YouTube</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+
+        // --- SUN CYCLE SCROLL LOGIC ---
+        window.addEventListener('scroll', () => {
+            const sun = document.getElementById('sun');
+            const scrollPercent = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
+            
+            // X travels from left to right, Y curves like an arc
+            const posX = scrollPercent * window.innerWidth;
+            const posY = Math.sin(scrollPercent * Math.PI) * 400; // Peak at 400px
+            
+            sun.style.left = `${posX}px`;
+            sun.style.bottom = `${posY}px`;
+            
+            // Color shift from morning gold to sunset orange
+            const hue = 40 + (scrollPercent * 20); // 40 is gold, 60 is orange-ish
+            sun.style.background = `radial-gradient(circle, hsl(${hue}, 90%, 60%), hsl(${hue}, 100%, 40%))`;
+        });
+
+        // --- TYPEWRITER PRAYER LOGIC ---
+        const prayers = [
+            "Lord, let your fire never go out in my soul...",
+            "Every door closed against my glory, open by fire!",
+            "Father, baptize me with the spirit of integrity.",
+            "I walk in divine speed and favor today.",
+            "May your presence be my constant companion."
+        ];
+        let pIndex = 0;
+        let charIndex = 0;
+        const tElement = document.getElementById('typewriter');
+
+        function type() {
+            if (charIndex < prayers[pIndex].length) {
+                tElement.textContent += prayers[pIndex].charAt(charIndex);
+                charIndex++;
+                setTimeout(type, 100);
+            } else {
+                setTimeout(erase, 3000);
+            }
+        }
+        function erase() {
+            if (charIndex > 0) {
+                tElement.textContent = prayers[pIndex].substring(0, charIndex - 1);
+                charIndex--;
+                setTimeout(erase, 50);
+            } else {
+                pIndex = (pIndex + 1) % prayers.length;
+                setTimeout(type, 500);
+            }
+        }
+        type();
+
+        // --- PARTICLE EFFECT LOGIC ---
+        const canvas = document.getElementById('canvas-particles');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        let particles = [];
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 2 + 1;
+                this.speedX = Math.random() * 0.5 - 0.25;
+                this.speedY = Math.random() * 0.5 - 0.25;
+            }
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                if (this.x > canvas.width) this.x = 0;
+                if (this.y > canvas.height) this.y = 0;
+            }
+            draw() {
+                ctx.fillStyle = 'rgba(251, 191, 36, 0.2)';
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        function initParticles() {
+            for (let i = 0; i < 80; i++) particles.push(new Particle());
+        }
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(p => { p.update(); p.draw(); });
+            requestAnimationFrame(animateParticles);
+        }
+        initParticles();
+        animateParticles();
+
+        // --- MODAL LOGIC ---
+        function openConvertModal() { document.getElementById('convertModal').style.display = 'flex'; }
+        function closeConvertModal() { document.getElementById('convertModal').style.display = 'none'; }
+        function openHopeModal() { document.getElementById('hopeModal').style.display = 'flex'; }
+        function closeHopeModal() { document.getElementById('hopeModal').style.display = 'none'; }
+        function closeHopeAndOpenDecision() { closeHopeModal(); openConvertModal(); }
+
+        document.getElementById('convertForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('convertName').value;
+            const phone = document.getElementById('convertPhone').value;
+            const msg = `Hallelujah! I am ${name}. I accepted Jesus on the site. My number: ${phone}`;
+            window.open(`https://wa.me/2348073387043?text=${encodeURIComponent(msg)}`, '_blank');
+            closeConvertModal();
+        });
+    </script>
+</body>
+</html>

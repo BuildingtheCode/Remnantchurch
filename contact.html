@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Remnant Fire Embassy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Outfit', sans-serif; }
+        .glass {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+        .form-input {
+            background: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+            transition: all 0.3s ease;
+        }
+        .form-input:focus {
+            outline: none;
+            border-color: #fbbf24;
+            box-shadow: 0 0 0 4px rgba(251, 191, 36, 0.1);
+        }
+        .gold-gradient {
+            background: linear-gradient(135deg, #B8860B 0%, #FFD700 100%);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900">
+
+    <nav class="fixed top-0 w-full z-[100] glass border-b border-white/20 px-6 py-4 flex justify-between items-center">
+        <a href="index.html" class="text-xl font-bold tracking-tighter text-slate-900">
+            REMNANT <span class="text-amber-600">FIRE</span>
+        </a>
+        <div class="hidden md:flex gap-6">
+            <a href="index.html" class="text-sm font-semibold text-slate-600 hover:text-amber-600 transition-colors">Home</a>
+            <a href="sermon.html" class="text-sm font-semibold text-slate-600 hover:text-amber-600 transition-colors">Sermons</a>
+            <a href="giving.html" class="text-sm font-semibold text-slate-600 hover:text-amber-600 transition-colors">Giving</a>
+        </div>
+        <button class="text-sm font-semibold bg-slate-900 text-white px-5 py-2 rounded-full">Menu</button>
+    </nav>
+
+    <header class="pt-40 pb-12 px-6 text-center">
+        <div class="max-w-3xl mx-auto" data-aos="fade-up">
+            <h1 class="text-5xl md:text-6xl font-bold mb-4 tracking-tight">Get in <span class="text-amber-600">Touch</span></h1>
+            <p class="text-lg text-slate-500">Have a question or need prayer? We are here for you.</p>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 pb-24">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            
+            <div class="space-y-6" data-aos="fade-right">
+                <div class="glass p-8 rounded-[2.5rem] border-l-4 border-amber-500">
+                    <h3 class="text-amber-600 font-bold uppercase text-xs tracking-widest mb-4">Visit Us</h3>
+                    <p class="font-bold text-lg text-slate-800">Uyo-City Polytechnic Campus</p>
+                    <p class="text-slate-500 text-sm">Uyo, Akwa Ibom State, Nigeria.</p>
+                </div>
+
+                <div class="glass p-8 rounded-[2.5rem] border-l-4 border-slate-900">
+                    <h3 class="text-slate-900 font-bold uppercase text-xs tracking-widest mb-4">Connect Directly</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-3">
+                            <span class="text-xl">📞</span>
+                            <span class="text-sm font-medium text-slate-700">+234 (0) 800 123 4567</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <span class="text-xl">📧</span>
+                            <span class="text-sm font-medium text-slate-700">info@remnantfire.org</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass p-8 rounded-[2.5rem] bg-amber-50/50">
+                    <h3 class="text-amber-700 font-bold uppercase text-xs tracking-widest mb-4">Office Hours</h3>
+                    <ul class="text-sm space-y-2 text-slate-600 font-medium">
+                        <li class="flex justify-between"><span>Mon - Fri:</span> <span>9:00 AM - 4:00 PM</span></li>
+                        <li class="flex justify-between text-amber-600 font-bold"><span>Sunday:</span> <span>8:00 AM - 12:00 PM</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="lg:col-span-2 glass p-8 md:p-12 rounded-[3rem] shadow-xl" data-aos="fade-left">
+                <div class="flex gap-8 border-b border-slate-100 mb-8">
+                    <button id="generalTab" onclick="switchTab('general')" class="pb-4 text-sm font-bold border-b-2 border-amber-500 text-slate-900">General Inquiry</button>
+                    <button id="prayerTab" onclick="switchTab('prayer')" class="pb-4 text-sm font-bold border-b-2 border-transparent text-slate-400 hover:text-slate-600">Prayer Request</button>
+                </div>
+
+                <form id="contactForm" class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="space-y-2">
+                            <label class="text-xs font-bold uppercase text-slate-400 ml-2">Full Name</label>
+                            <input type="text" placeholder="John Doe" class="w-full px-6 py-4 rounded-2xl form-input">
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-xs font-bold uppercase text-slate-400 ml-2">Email Address</label>
+                            <input type="email" placeholder="john@example.com" class="w-full px-6 py-4 rounded-2xl form-input">
+                        </div>
+                    </div>
+                    
+                    <div id="subjectWrapper" class="space-y-2">
+                        <label class="text-xs font-bold uppercase text-slate-400 ml-2">Subject</label>
+                        <select class="w-full px-6 py-4 rounded-2xl form-input appearance-none bg-white">
+                            <option>General Information</option>
+                            <option>Membership</option>
+                            <option>Counseling</option>
+                            <option>Technical Support</option>
+                        </select>
+                    </div>
+
+                    <div class="space-y-2">
+                        <label id="messageLabel" class="text-xs font-bold uppercase text-slate-400 ml-2">Message</label>
+                        <textarea rows="5" placeholder="How can we help you?" class="w-full px-6 py-4 rounded-2xl form-input resize-none"></textarea>
+                    </div>
+
+                    <button type="submit" class="w-full gold-gradient py-5 rounded-2xl text-white font-bold shadow-lg shadow-amber-200 hover:scale-[1.02] transition-transform active:scale-95">
+                        Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <section class="max-w-6xl mx-auto px-6 mb-24" data-aos="zoom-in">
+        <div class="glass w-full h-80 rounded-[3rem] overflow-hidden relative border-4 border-white shadow-2xl">
+            <div class="absolute inset-0 bg-slate-200 flex flex-col items-center justify-center text-center p-6">
+                <span class="text-4xl mb-2">📍</span>
+                <h3 class="font-bold text-slate-800">Uyo-City Polytechnic</h3>
+                <p class="text-sm text-slate-500 mb-4">Uyo, Akwa Ibom State</p>
+                <a href="https://maps.google.com" target="_blank" class="px-6 py-2 bg-slate-900 text-white rounded-full text-xs font-bold">Open in Google Maps</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-slate-900 text-white pt-24 pb-12 px-6">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between gap-16 border-b border-slate-800 pb-16">
+            <div class="max-w-sm">
+                <div class="text-3xl font-bold mb-6">REMNANT <span class="text-amber-500">FIRE</span></div>
+                <p class="text-slate-400 leading-relaxed">Igniting a generation with the fire of the Holy Ghost.</p>
+            </div>
+            <div class="grid grid-cols-2 gap-12">
+                <div>
+                    <h4 class="font-bold mb-6 text-amber-500 uppercase tracking-widest text-sm">Church</h4>
+                    <ul class="text-slate-400 space-y-3">
+                        <li><a href="index.html" class="hover:text-white">Home</a></li>
+                        <li><a href="sermon.html" class="hover:text-white">Sermons</a></li>
+                        <li><a href="giving.html" class="hover:text-white">Giving</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-6 text-amber-500 uppercase tracking-widest text-sm">Contact</h4>
+                    <ul class="text-slate-400 space-y-3">
+                        <li>Facebook</li>
+                        <li>YouTube</li>
+                        <li>WhatsApp</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-12 text-sm text-slate-500">
+            © 2026 Remnant Fire Embassy.
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+
+        function switchTab(type) {
+            const generalTab = document.getElementById('generalTab');
+            const prayerTab = document.getElementById('prayerTab');
+            const subjectWrapper = document.getElementById('subjectWrapper');
+            const messageLabel = document.getElementById('messageLabel');
+
+            if (type === 'prayer') {
+                prayerTab.classList.add('border-amber-500', 'text-slate-900');
+                prayerTab.classList.remove('border-transparent', 'text-slate-400');
+                generalTab.classList.add('border-transparent', 'text-slate-400');
+                generalTab.classList.remove('border-amber-500', 'text-slate-900');
+                
+                subjectWrapper.classList.add('hidden');
+                messageLabel.innerText = "Prayer Request";
+            } else {
+                generalTab.classList.add('border-amber-500', 'text-slate-900');
+                generalTab.classList.remove('border-transparent', 'text-slate-400');
+                prayerTab.classList.add('border-transparent', 'text-slate-400');
+                prayerTab.classList.remove('border-amber-500', 'text-slate-900');
+                
+                subjectWrapper.classList.remove('hidden');
+                messageLabel.innerText = "Message";
+            }
+        }
+    </script>
+</body>
+</html>
